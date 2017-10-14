@@ -5,16 +5,16 @@
     </div>
   </div>
   <div *ngIf="items">
-  <ol>
-    <li *ngFor="let item of items | slice:0:30" class="post">
+  <ol start="{{ listStart }}">
+    <li *ngFor="let item of items" class="post">
         <app-item class="item-block" [item]="item"></app-item>
     </li>
   </ol>
       <div class="nav">
-          <a href="" class="previous">
+          <a *ngIf="listStart !== 1" [routerLink]="['/' + storiesType, pageNumber - 1]" class="previous">
             < Previous
           </a>
-          <a href="" class="more">
+          <a *ngIf="items.length === 30" [routerLink]="['/' + storiesType, pageNumber + 1]" class="more">
             More >
           </a>
         </div>
