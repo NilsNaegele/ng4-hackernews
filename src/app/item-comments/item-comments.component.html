@@ -17,7 +17,7 @@
         </p>
         <div class="subtext">
           <span>{{ item.points }} by
-            <a href="">{{ item.user }}</a>
+            <a [routerLink]="['/user', item.user]" routerLinkActive="active">{{ item.user }}</a>
           </span>
           <span>
             {{ item.time_ago }}

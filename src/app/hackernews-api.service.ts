@@ -6,12 +6,9 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HackerNewsApiService {
+  baseUrl = 'https://node-hnapi.herokuapp.com';
 
-  baseUrl: string;
-
-  constructor(private http: Http) {
-    this.baseUrl = 'https://node-hnapi.herokuapp.com';
-   }
+  constructor(private http: Http) { }
 
    fetchStories(storyType: string, page: number): Observable<any> {
      return this.http.get(`${this.baseUrl}/${storyType}?page=${page}`).map(response => response.json());
@@ -19,6 +16,10 @@ export class HackerNewsApiService {
 
    fetchComments(id: number): Observable<any> {
      return this.http.get(`${this.baseUrl}/item/${id}`).map(response => response.json());
+   }
+
+   fetchUser(id: string): Observable<any> {
+     return this.http.get(`${this.baseUrl}/user/${id}`).map(response => response.json());
    }
 
 }
