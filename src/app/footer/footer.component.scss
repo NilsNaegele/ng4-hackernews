@@ -1,15 +1,15 @@
-$mobile-only: "only screen and (max-width : 768px)";
+$mobile-only: "only screen and (max-width: 768px)";
 
 #footer {
   position: relative;
   padding: 10px;
   height: 60px;
-  border-top: 2px solid #b92b27;
+  border-top: 3px solid #ff1a1a;
   letter-spacing: 0.7px;
   text-align: center;
 
   a {
-    color: #b92b27;
+    color: #ff1a1a;
     font-weight: bold;
     text-decoration: none;
 

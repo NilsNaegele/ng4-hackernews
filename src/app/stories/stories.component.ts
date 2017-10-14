@@ -29,7 +29,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
       this.hackerNewsApiService.fetchStories(this.storiesType, this.pageNumber)
                                .subscribe(
                                  items => this.items = items,
-                                 error => console.log(`Error fetching ${this.storiesType} stories`),
+                                 error => console.error(`Error fetching ${this.storiesType} stories`),
                                  () =>  {
                                        this.listStart = ((this.pageNumber - 1) * 30) + 1;
                                        window.scrollTo(0, 0);

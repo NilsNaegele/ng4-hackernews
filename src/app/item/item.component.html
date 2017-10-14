@@ -3,7 +3,7 @@
             <a class="title" href="{{ item.url }}">
                 {{ item.title }}
             </a>
-            <span *ngIf="item.domain" class="domain">{{ item.domain }}</span>
+            <span *ngIf="item.domain" class="domain">({{ item.domain }})</span>
         </p>
         <div class="subtext-laptop">
           <span>
@@ -11,9 +11,9 @@
           <a href="">{{ item.user }}</a>
           </span>
           <span>
-          {{ item.timeAgo }}
+          {{ item.time_ago }}
           <span> |
-          <a href="">
+          <a [routerLink]="['/item', item.id]">
               <span *ngIf="item.comments_count !== 0">
                 {{ item.comments_count }}
                 <span *ngIf="item.comments_count === 1">comment</span>
@@ -38,7 +38,7 @@
           <span class="right">{{ item.points }} ★</span>
         </div>
         <div class="details">
-            {{ item.timeAgo }}
+            {{ item.time_ago }}
           <a href="" class="comment-number"> •
             <span *ngIf="item.comments_count !== 0">
               {{ item.comments_count }}

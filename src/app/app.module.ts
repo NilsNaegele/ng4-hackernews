@@ -13,6 +13,9 @@ import { ItemComponent } from './item/item.component';
 
 import { HackerNewsApiService } from './hackernews-api.service';
 import { ItemCommentsComponent } from './item-comments/item-comments.component';
+import { CommentTreeComponent } from './comment-tree/comment-tree.component';
+import { CommentComponent } from './comment/comment.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { ItemCommentsComponent } from './item-comments/item-comments.component';
     StoriesComponent,
     FooterComponent,
     ItemComponent,
-    ItemCommentsComponent
+    ItemCommentsComponent,
+    CommentTreeComponent,
+    CommentComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
