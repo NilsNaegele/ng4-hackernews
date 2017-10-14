@@ -16,11 +16,10 @@ export class StoriesComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.hackerNewsApiService.fetchStories()
+      this.hackerNewsApiService.fetchStories('news', 1)
                                .subscribe(
                                  items => this.items = items,
                                  error => console.log('Error fetching stories'));
-
   }
 
 }

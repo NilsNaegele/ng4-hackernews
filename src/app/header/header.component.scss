@@ -72,6 +72,17 @@ h1 {
   }
 }
 
+.left {
+  position: absolute;
+  left: 60px;
+  font-size: 16px;
+
+  @media #{$mobile-only} {
+    width: 100%;
+    left: 0;
+  }
+}
+
 .header-nav {
   display: inline-block;
 
