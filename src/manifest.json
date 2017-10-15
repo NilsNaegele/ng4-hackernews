@@ -1,0 +1,26 @@
+{
+  "name": "Angular 4 HN",
+  "short_name": "Angular 4 HN",
+  "icons": [
+    {
+      "src": "assets/icons/android-chrome-96x96.png",
+      "sizes": "96x96",
+      "type": "image\/png"
+    },
+    {
+      "src": "assets/icons/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image\/png"
+    },
+    {
+      "src": "assets/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image\/png"
+    }
+  ],
+  "theme_color": "#ff1a1a",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "./?utm_source=web_app_manifest"
+}
