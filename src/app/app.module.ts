@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app.routes';
+import { CoreModule } from './core/core.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { StoriesComponent } from './stories/stories.component';
-import { FooterComponent } from './footer/footer.component';
 import { ItemComponent } from './item/item.component';
 import { ItemCommentsComponent } from './item-comments/item-comments.component';
 import { CommentTreeComponent } from './comment-tree/comment-tree.component';
@@ -21,9 +20,7 @@ import { HackerNewsApiService } from './hackernews-api.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     StoriesComponent,
-    FooterComponent,
     ItemComponent,
     ItemCommentsComponent,
     CommentTreeComponent,
@@ -34,7 +31,8 @@ import { HackerNewsApiService } from './hackernews-api.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule
   ],
   providers: [HackerNewsApiService],
   bootstrap: [AppComponent]
