@@ -1,40 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app.routes';
 import { CoreModule } from './core/core.module';
+import { ServicesModule } from './shared/services/services.module';
+import { SharedComponentsModule } from './shared/components/shared-components.module';
+import { PipesModule } from './shared/pipes/pipes.module';
 
 import { AppComponent } from './app.component';
-import { StoriesComponent } from './stories/stories.component';
-import { ItemComponent } from './item/item.component';
-import { ItemCommentsComponent } from './item-comments/item-comments.component';
-import { CommentTreeComponent } from './comment-tree/comment-tree.component';
-import { CommentComponent } from './comment/comment.component';
-import { UserComponent } from './user/user.component';
-
-import { HackerNewsApiService } from './hackernews-api.service';
+import { FeedComponent } from './feeds/feed/feed.component';
+import { ItemComponent } from './feeds/item/item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StoriesComponent,
-    ItemComponent,
-    ItemCommentsComponent,
-    CommentTreeComponent,
-    CommentComponent,
-    UserComponent
+    FeedComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
+    CoreModule,
     AppRoutingModule,
-    CoreModule
+    ServicesModule.forRoot(),
+    SharedComponentsModule,
+    PipesModule
   ],
-  providers: [HackerNewsApiService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,7 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { HackerNewsApiService } from '../hackernews-api.service';
+import { User } from '../shared/models/user';
+import { HackerNewsApiService } from '../shared/services/hackernews-api.service';
 
 import { Subscription } from 'rxjs/Subscription';
 
@@ -13,12 +14,13 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class UserComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;
-  user;
+  user: User;
+  errorMessage = '';
 
   constructor(private hackerNewsApiService: HackerNewsApiService,
               private route: ActivatedRoute, private location: Location) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.userSubscription = this.route.params.subscribe(params => {
               const userID = params['id'];
               this.hackerNewsApiService.fetchUser(userID).subscribe(data => {
@@ -27,7 +29,7 @@ export class UserComponent implements OnInit, OnDestroy {
     });
   }
 
-  goBack() {
+  goBack(): void {
     this.location.back();
   }
 

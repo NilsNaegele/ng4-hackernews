@@ -1,24 +1,23 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { StoriesComponent } from './stories/stories.component';
-import { ItemCommentsComponent } from './item-comments/item-comments.component';
+import { FeedComponent } from './feeds/feed/feed.component';
 import { UserComponent } from './user/user.component';
+
+const feedRoutes = [{
+    path: ':page',
+    component: FeedComponent
+}];
 
 const appRoutes: Routes = [
       { path: '', redirectTo: 'news/1', pathMatch: 'full' },
-      { path: 'news/:page', component: StoriesComponent, data: { storiesType: 'news' }},
-      { path: 'newest/:page', component: StoriesComponent, data: { storiesType: 'newest' }},
-      { path: 'show/:page', component: StoriesComponent, data: { storiesType: 'show' }},
-      { path: 'ask/:page', component: StoriesComponent, data: { storiesType: 'ask' }},
-      { path: 'jobs/:page', component: StoriesComponent, data: { storiesType: 'jobs' }},
-      { path: 'item/:id', component: ItemCommentsComponent },
-      { path: 'user/:id', component: UserComponent }
+      { path: 'news', children: feedRoutes, data: { feedType: 'news' }},
+      { path: 'newest', children: feedRoutes, data: { feedType: 'newest' }},
+      { path: 'show', children: feedRoutes, data: { feedType: 'show' }},
+      { path: 'ask', children: feedRoutes, data: { feedType: 'ask' }},
+      { path: 'jobs', children: feedRoutes, data: { feedType: 'jobs' }},
+      { path: 'item', loadChildren: 'app/item-details/item-details.module#ItemDetailsModule' },
+      { path: 'user', loadChildren: 'app/user/user.module#UserModule' }
 
 ];
-
-@NgModule({
-  imports: [ RouterModule.forRoot(appRoutes) ],
-  exports: [ RouterModule ]
-})
-export class AppRoutingModule { }
+export const AppRoutingModule: ModuleWithProviders = RouterModule.forRoot(appRoutes);
